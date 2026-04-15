@@ -77,6 +77,15 @@ section{padding:80px 24px}
   display:flex;align-items:center;justify-content:center;
   margin-top:4px;
 }
+.diamond-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin:24px 0}
+.diamond-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.95rem;line-height:1.9;color:var(--text-light);
+}
+.diamond-list li::before{
+  content:"◆";color:var(--text-light);font-size:.7rem;
+  flex-shrink:0;line-height:1.9;
+}
 
 /* CTAボタン */
 .cta-wrap{text-align:center;margin:40px 0}
@@ -487,7 +496,7 @@ footer{
 <section class="bg-white">
   <div class="inner">
     <h2 class="sec-title">この会は、こんな場ではありません</h2>
-    <ul class="check-list">
+    <ul class="diamond-list">
       <li>農業技術をしっかり学ぶ講座</li>
       <li>一方的に何かを教わるセミナー</li>
       <li>がんばって人に合わせる交流会</li>
