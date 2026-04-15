@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土にふれて、語って、ゆるむ。じゃがいも植えと楽しむ会｜八ヶ岳</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   基本設定
+   ======================================== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --green:#3a5a32;
+  --green-light:#5e8c54;
+  --green-pale:#e8f0e4;
+  --brown:#7a6040;
+  --brown-light:#a08060;
+  --cream:#faf6ef;
+  --cream-dark:#f0ebe0;
+  --white:#ffffff;
+  --text:#2d2a24;
+  --text-light:#5a5448;
+  --border:#ddd5c5;
+}
+body{
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+  color:var(--text);background:var(--white);
+  line-height:2;font-size:16px;overflow-x:hidden;
+}
+
+/* ========================================
+   共通パーツ
+   ======================================== */
+.inner{max-width:680px;margin:0 auto;padding:0 24px}
+section{padding:80px 24px}
+@media(max-width:600px){section{padding:60px 20px}}
+
+/* 見出し */
+.sec-label{
+  font-size:.72rem;letter-spacing:.25em;color:var(--green-light);
+  text-align:center;margin-bottom:12px;
+}
+.sec-title{
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:500;
+  color:var(--green);text-align:center;line-height:1.7;
+  margin-bottom:36px;letter-spacing:.04em;
+}
+.sec-title-left{
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(1.2rem,3vw,1.5rem);font-weight:500;
+  color:var(--green);line-height:1.7;
+  margin-bottom:28px;letter-spacing:.04em;
+}
+
+/* 本文 */
+.body{
+  font-size:clamp(.92rem,2.2vw,1.02rem);
+  line-height:2.1;color:var(--text-light);margin-bottom:20px;
+}
+.body strong{color:var(--text);font-weight:500}
+
+/* リスト */
+.check-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin:24px 0}
+.check-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.95rem;line-height:1.9;color:var(--text-light);
+}
+.check-list li::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--green-light);flex-shrink:0;margin-top:10px;
+}
+
+/* CTAボタン */
+.cta-wrap{text-align:center;margin:40px 0}
+.cta-btn{
+  display:inline-block;
+  background:var(--green);color:var(--white);
+  font-size:1rem;font-weight:500;letter-spacing:.12em;
+  padding:18px 48px;border-radius:100px;
+  text-decoration:none;transition:all .3s;
+  box-shadow:0 4px 20px rgba(0,0,0,.12);
+}
+.cta-btn:hover{background:var(--green-light);transform:translateY(-2px)}
+.cta-note{
+  display:block;text-align:center;
+  font-size:.78rem;color:var(--text-light);margin-top:12px;
+}
+
+/* 区切り線 */
+.divider{
+  width:40px;height:1px;background:var(--border);
+  margin:0 auto 36px;
+}
+
+/* 写真プレースホルダー */
+.photo{
+  width:100%;border-radius:12px;overflow:hidden;
+  margin:32px 0;background:var(--cream-dark);
+  aspect-ratio:16/9;display:flex;align-items:center;
+  justify-content:center;color:var(--brown-light);
+  font-size:.85rem;letter-spacing:.1em;
+}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-portrait{aspect-ratio:3/4}
+.photo-square{aspect-ratio:1/1}
+
+/* ========================================
+   ファーストビュー
+   ======================================== */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;background:var(--cream-dark);
+}
+/* ★ 写真差し替え箇所：ファーストビュー背景画像 */
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('') center/cover no-repeat;
+  /* ↑ ここに八ヶ岳の自然写真URLを入れる */
+  background-color:var(--cream-dark);
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(250,246,239,0.1) 0%,
+    rgba(250,246,239,0.3) 40%,
+    rgba(250,246,239,0.85) 75%,
+    rgba(250,246,239,1) 100%
+  );
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 24px 60px;max-width:680px;margin:0 auto;
+}
+.hero-date{
+  font-size:.8rem;letter-spacing:.2em;color:var(--green-light);
+  margin-bottom:16px;
+}
+.hero-title{
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(1.25rem,4.2vw,2.6rem);font-weight:500;
+  color:var(--green);line-height:1.6;
+  letter-spacing:.04em;margin-bottom:16px;
+}
+.hero-sub{
+  font-size:clamp(.82rem,2vw,.95rem);
+  color:var(--brown);line-height:1.9;
+  margin-bottom:28px;letter-spacing:.03em;
+}
+.hero-lead{
+  font-size:clamp(.92rem,2.2vw,1.02rem);
+  color:var(--text-light);line-height:2.2;
+  margin-bottom:36px;
+}
+
+/* ========================================
+   セクション背景バリエーション
+   ======================================== */
+.bg-white{background:var(--white)}
+.bg-cream{background:var(--cream)}
+.bg-green-pale{background:var(--green-pale)}
+
+/* ========================================
+   開催概要テーブル
+   ======================================== */
+.info-table{width:100%;border-collapse:collapse;margin:24px 0}
+.info-table tr{border-bottom:1px solid var(--border)}
+.info-table th{
+  font-size:.88rem;font-weight:500;color:var(--green);
+  padding:16px 0;width:100px;vertical-align:top;text-align:left;
+}
+.info-table td{
+  font-size:.92rem;color:var(--text-light);
+  padding:16px 0;line-height:1.9;
+}
+@media(max-width:600px){
+  .info-table th,.info-table td{display:block;padding:8px 0}
+  .info-table th{padding-bottom:0;width:auto}
+  .info-table tr{padding:12px 0;display:block}
+}
+
+/* ========================================
+   タイムライン
+   ======================================== */
+.timeline{margin:28px 0}
+.timeline-day{
+  font-family:"Noto Serif JP",serif;
+  font-size:1.05rem;font-weight:500;color:var(--green);
+  margin-bottom:16px;margin-top:28px;
+}
+.timeline-day:first-child{margin-top:0}
+.timeline-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.timeline-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.92rem;line-height:1.9;color:var(--text-light);
+  padding-left:16px;border-left:2px solid var(--green-pale);
+}
+
+/* ========================================
+   フロー（申込後の流れ）
+   ======================================== */
+.flow{display:flex;flex-direction:column;gap:16px;margin:24px 0}
+.flow-step{
+  display:flex;align-items:flex-start;gap:16px;
+  font-size:.92rem;line-height:1.9;color:var(--text-light);
+}
+.flow-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--green);color:var(--white);
+  font-size:.75rem;font-weight:500;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+
+/* ========================================
+   キーワードチップ
+   ======================================== */
+.keywords{
+  display:flex;flex-wrap:wrap;gap:12px;
+  justify-content:center;margin:28px 0;
+}
+.keyword{
+  background:var(--white);color:var(--green);
+  border:1.5px solid var(--green-light);
+  border-radius:100px;padding:8px 22px;
+  font-size:.88rem;font-weight:400;letter-spacing:.05em;
+}
+
+/* ========================================
+   最後のメッセージ
+   ======================================== */
+.closing-message{
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(.95rem,2.3vw,1.08rem);
+  color:var(--text);line-height:2.2;
+  padding:36px;background:var(--cream);
+  border-radius:16px;border-left:4px solid var(--green-light);
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+footer{
+  text-align:center;padding:40px 24px;
+  font-size:.78rem;color:var(--text-light);
+  background:var(--cream-dark);
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================
+     1. ファーストビュー
+     ======================================== -->
+<section class="hero">
+  <!-- ★ 写真差し替え：八ヶ岳の自然写真（畑、山、新緑など） -->
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-date">2026年5月16日（土）〜17日（日）｜奥八ヶ岳</p>
+    <h1 class="hero-title">
+      土にふれて、語って、<br>ゆるむ。<br>
+      じゃがいも植えと楽しむ会
+    </h1>
+    <p class="hero-sub">
+      自然・癒し・アニメ・海外・週末2拠点生活のある暮らしを、<br>
+      ゆるやかに味わう時間
+    </p>
+    <p class="hero-lead">
+      八ヶ岳の自然の中で、<br>
+      土にふれ、じゃがいもを植え、<br>
+      ごはんを囲みながら、<br>
+      好きなことやこれからの暮らしを語る。<br><br>
+      そんな小さな時間を、<br>
+      はじめてみようと思いました。
+    </p>
+    <div class="cta-wrap">
+      <!-- ★ リンク差し替え：申込フォームURL -->
+      <a href="#apply" class="cta-btn">この会に申し込む</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     2. この会はどんな時間か
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <div class="divider"></div>
+    <h2 class="sec-title">この会はこんな時間です</h2>
+    <p class="body">
+      土にふれて、<br>
+      ごはんを囲んで、<br>
+      語って、<br>
+      少しゆるむ。
+    </p>
+    <p class="body">
+      その中で、自分の中にある<br>
+      「好き」<br>
+      「こう生きたい」<br>
+      「こんな時間がほしい」<br>
+      を、少しずつ思い出していく会です。
+    </p>
+    <!-- ★ 写真差し替え：畑作業や自然の写真 -->
+    <div class="photo">写真：畑や土にふれている様子</div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     3. 主催者の実感
+     ======================================== -->
+<section class="bg-cream">
+  <div class="inner">
+    <h2 class="sec-title">この会を開こうと思った理由</h2>
+    <p class="body">
+      僕自身、都会での仕事や生活の中で、<br>
+      エネルギーが枯渇したり、<br>
+      燃え尽きたようになったりすることを、<br>
+      何度も経験してきました。
+    </p>
+    <p class="body">
+      でも、奥八ヶ岳の自然の中で暮らし始めてから、<br>
+      少しずつ体感としてわかってきたことがあります。
+    </p>
+    <p class="body">
+      それは、<strong>まず自分を満たすこと。</strong><br>
+      そして、<strong>溢れた分で人を満たすこと。</strong>
+    </p>
+    <p class="body">
+      その順番で生きないと、<br>
+      いつまで経っても、<br>
+      どこかうまくいかない違和感は拭えない。
+    </p>
+    <p class="body">
+      僕は、そう感じるようになりました。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     4. 今回の会に込めた想い
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">今回の会に込めた想い</h2>
+    <p class="body">
+      だから今回の会も、<br>
+      何かを頑張る場ではなく、<br>
+      まず自分の心が少しゆるみ、<br>
+      好きなことや大切にしたいことを思い出せる時間として<br>
+      開きたいと思っています。
+    </p>
+    <!-- ★ 写真差し替え：八ヶ岳の穏やかな風景 -->
+    <div class="photo">写真：八ヶ岳の穏やかな風景</div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     5. この会に流れているテーマ
+     ======================================== -->
+<section class="bg-green-pale">
+  <div class="inner">
+    <h2 class="sec-title">この会に流れているテーマ</h2>
+    <div class="keywords">
+      <span class="keyword">自然</span>
+      <span class="keyword">癒し</span>
+      <span class="keyword">アニメ</span>
+      <span class="keyword">海外</span>
+      <span class="keyword">週末2拠点生活</span>
+    </div>
+    <p class="body" style="text-align:center">
+      こうしたキーワードを、<br>
+      堅く学ぶのではなく、<br>
+      ゆるやかに味わいながら、
+    </p>
+    <p class="body" style="text-align:center">
+      「こういう時間、いいな」<br>
+      「こういう生き方もあるのかもしれない」
+    </p>
+    <p class="body" style="text-align:center">
+      と感じられる二日間です。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     6. こんな方におすすめ
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">こんな方におすすめです</h2>
+    <ul class="check-list">
+      <li>自然の中で、少し肩の力を抜きたい方</li>
+      <li>好きなことを安心して話せる場がほしい方</li>
+      <li>人の期待に応えることが多く、自分を後回しにしがちな方</li>
+      <li>頑張ることだけではない生き方を、少しずつ味わってみたい方</li>
+      <li>自然、癒し、アニメ、海外、2拠点生活という言葉に惹かれる方</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ========================================
+     CTA（中間）
+     ======================================== -->
+<section class="bg-cream" style="padding:48px 24px">
+  <div class="cta-wrap" style="margin:0">
+    <a href="#apply" class="cta-btn">この会に申し込む</a>
+  </div>
+</section>
+
+
+<!-- ========================================
+     7. この会で過ごす時間
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">この会で過ごす時間</h2>
+    <p class="body">
+      じゃがいもを植えながら土にふれる。<br>
+      自然の中で深呼吸する。<br>
+      ごはんを囲む。<br>
+      温泉でゆるむ。<br>
+      好きなことを話す。<br>
+      これからの暮らしや生き方を、少し自由に思い描いてみる。
+    </p>
+    <p class="body">
+      そんな時間を、一緒に過ごします。
+    </p>
+    <!-- ★ 写真差し替え：ごはんを囲む、温泉、自然の中の写真 -->
+    <div class="photo">写真：ごはんを囲む様子や自然の中のひととき</div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     8. この会で大切にしたいこと
+     ======================================== -->
+<section class="bg-cream">
+  <div class="inner">
+    <h2 class="sec-title">この会で大切にしたいこと</h2>
+    <p class="body">
+      うまく話すことでも、<br>
+      何か答えを出すことでもありません。
+    </p>
+    <p class="body">
+      まずは、自分の心が少しゆるむこと。<br>
+      安心してそこにいられること。<br>
+      そして、自分の中にある
+    </p>
+    <p class="body">
+      「好き」<br>
+      「心が動くもの」<br>
+      「本当はこう生きたい」
+    </p>
+    <p class="body">
+      を、少しずつ思い出していくことです。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     9. これはこんな場ではありません
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">この会は、こんな場ではありません</h2>
+    <ul class="check-list">
+      <li>農業技術をしっかり学ぶ講座</li>
+      <li>一方的に何かを教わるセミナー</li>
+      <li>がんばって人に合わせる交流会</li>
+      <li>無理に自分を変えなければいけない場</li>
+    </ul>
+    <p class="body" style="margin-top:28px">
+      そうではなく、<br>
+      土にふれる。<br>
+      自然の中で少し力を抜く。<br>
+      好きなことを安心して話す。<br>
+      心がほどける感覚を取り戻す。
+    </p>
+    <p class="body">
+      そんな時間を大切にする、小さな集まりです。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     10. 当日の流れ
+     ======================================== -->
+<section class="bg-green-pale">
+  <div class="inner">
+    <h2 class="sec-title">当日の流れ</h2>
+    <div class="timeline">
+      <p class="timeline-day">1日目</p>
+      <ul class="timeline-list">
+        <li>集合</li>
+        <li>じゃがいも植え</li>
+        <li>ひと休み、温泉、自由時間</li>
+        <li>ごはんを囲みながら、ゆるやかに語る時間</li>
+      </ul>
+      <p class="timeline-day">2日目</p>
+      <ul class="timeline-list">
+        <li>朝のゆったりした時間</li>
+        <li>自然の中を歩く、ゆるむ時間</li>
+        <li>これからの暮らしや生き方を語る時間</li>
+        <li>解散</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     11. 安心して来ていただくために
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">安心して来ていただくために</h2>
+    <p class="body">
+      今回は少人数で開催します。<br>
+      たくさんの人を集めるためではなく、<br>
+      ひとりひとりが無理なく過ごせる空気を大切にしたいからです。
+    </p>
+    <p class="body">
+      「話すのが得意ではない」<br>
+      「初対面が少し緊張する」<br>
+      そんな方でも大丈夫です。
+    </p>
+    <p class="body">
+      無理に話さなくても大丈夫です。<br>
+      そのままのペースでいていただけたらと思っています。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     12. 開催概要
+     ======================================== -->
+<section class="bg-cream">
+  <div class="inner">
+    <h2 class="sec-title">開催概要</h2>
+    <table class="info-table">
+      <tr>
+        <th>開催日</th>
+        <td>2026年5月16日（土）〜17日（日）</td>
+      </tr>
+      <tr>
+        <th>場所</th>
+        <td>奥八ヶ岳エリア<br><span style="font-size:.85rem;color:var(--brown-light)">※詳細はお申し込み後にご案内します</span></td>
+      </tr>
+      <tr>
+        <th>内容</th>
+        <td>
+          じゃがいも植え<br>
+          自然の中で過ごす時間<br>
+          ごはんを囲む時間<br>
+          温泉<br>
+          ゆるやかに語る時間
+        </td>
+      </tr>
+      <tr>
+        <th>定員</th>
+        <td>少人数開催（4〜6名程度）</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+
+<!-- ========================================
+     13. 参加費・お申し込み
+     ======================================== -->
+<section class="bg-white" id="apply">
+  <div class="inner">
+    <h2 class="sec-title">参加費・お申し込み</h2>
+    <p class="body" style="text-align:center;margin-bottom:36px">
+      ご希望のプランをお選びください。<br>
+      お支払いと同時に、お名前・連絡先・アレルギー情報をご記入いただきます。
+    </p>
+
+    <!-- 日帰り -->
+    <div style="border:1.5px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;background:var(--cream);">
+      <p style="font-size:.78rem;letter-spacing:.2em;color:var(--green-light);margin-bottom:8px">DAY TRIP</p>
+      <p style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin-bottom:8px">日帰り参加</p>
+      <p style="font-size:1.5rem;font-weight:500;color:var(--text);margin-bottom:8px">¥6,500 <span style="font-size:.8rem;color:var(--text-light)">（税込）</span></p>
+      <p style="font-size:.85rem;color:var(--text-light);line-height:1.9;margin-bottom:20px">じゃがいも植え体験＋ごはん＋火を囲んで語る会</p>
+      <a href="https://buy.stripe.com/eVqfZh5q35R26LmbFN5kk02" class="cta-btn" style="width:100%;display:block;text-align:center;padding:14px 24px">日帰りで申し込む</a>
+    </div>
+
+    <!-- 宿泊（布団） -->
+    <div style="border:2px solid var(--green-light);border-radius:16px;padding:28px;margin-bottom:20px;background:var(--white);position:relative;">
+      <p style="position:absolute;top:-13px;left:24px;background:var(--green);color:var(--white);font-size:.72rem;letter-spacing:.1em;padding:4px 14px;border-radius:100px">定員6名まで</p>
+      <p style="font-size:.78rem;letter-spacing:.2em;color:var(--green-light);margin-bottom:8px">OVERNIGHT</p>
+      <p style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin-bottom:8px">宿泊参加（布団）</p>
+      <p style="font-size:1.5rem;font-weight:500;color:var(--text);margin-bottom:8px">¥9,800 <span style="font-size:.8rem;color:var(--text-light)">（税込）</span></p>
+      <p style="font-size:.85rem;color:var(--text-light);line-height:1.9;margin-bottom:20px">上記すべて＋宿泊（布団）</p>
+      <a href="https://buy.stripe.com/eVqdR98CfbbmedO8tB5kk00" class="cta-btn" style="width:100%;display:block;text-align:center;padding:14px 24px">宿泊（布団）で申し込む</a>
+    </div>
+
+    <!-- 宿泊（コット） -->
+    <div style="border:1.5px solid var(--border);border-radius:16px;padding:28px;margin-bottom:32px;background:var(--cream);">
+      <p style="font-size:.78rem;letter-spacing:.2em;color:var(--green-light);margin-bottom:8px">OVERNIGHT</p>
+      <p style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin-bottom:8px">宿泊参加（コット）</p>
+      <p style="font-size:1.5rem;font-weight:500;color:var(--text);margin-bottom:8px">¥8,500 <span style="font-size:.8rem;color:var(--text-light)">（税込）</span></p>
+      <p style="font-size:.85rem;color:var(--text-light);line-height:1.9;margin-bottom:20px">上記すべて＋宿泊（コット＋寝袋）<br>7人目以降の方向け</p>
+      <a href="https://buy.stripe.com/dRm28raKna7iedO8tB5kk03" class="cta-btn" style="width:100%;display:block;text-align:center;padding:14px 24px">宿泊（コット）で申し込む</a>
+    </div>
+
+    <p class="body" style="font-size:.82rem;text-align:center;color:var(--text-light)">
+      ※お支払い完了後、ご登録のメールアドレスに確認メールが届きます
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     14. 宿泊について
+     ======================================== -->
+<section class="bg-cream">
+  <div class="inner">
+    <h2 class="sec-title">宿泊について</h2>
+    <p class="body">
+      宿泊をご希望の方は、<br>
+      奥八ヶ岳の拠点でそのままお過ごしいただけます。
+    </p>
+    <p class="body">
+      豪華な宿泊というより、<br>
+      自然の中で、少し肩の力を抜いて過ごすための、<br>
+      素朴であたたかな時間を大切にしています。
+    </p>
+    <p class="body" style="font-size:.88rem;color:var(--text-light);margin-top:12px">
+      ※布団を6組までご用意しています。<br>
+      7人目以降はコットと寝袋でのご用意となります（その場合の宿泊費は8,500円です）。
+    </p>
+    <!-- ★ 写真差し替え：小屋の外観や室内 -->
+    <div class="photo">写真：宿泊場所の外観や室内の様子</div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     15. 持ち物
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">持ち物</h2>
+    <ul class="check-list">
+      <li>汚れてもよい服装</li>
+      <li>畑作業のできる靴</li>
+      <li>帽子</li>
+      <li>タオル</li>
+      <li>飲み物</li>
+      <li>防寒着</li>
+      <li>温泉セット</li>
+      <li>宿泊の方は身の回り品</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ========================================
+     16. 雨天の場合
+     ======================================== -->
+<section class="bg-cream">
+  <div class="inner">
+    <h2 class="sec-title">雨天の場合</h2>
+    <p class="body">
+      雨天の場合も、中止ではなく、<br>
+      できる範囲で内容を調整しながら開催予定です。
+    </p>
+    <p class="body">
+      この会は、畑作業だけが目的ではなく、<br>
+      一緒に心地よい時間を過ごすことそのものを大切にしています。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     17. 合う人／合わない人
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title-left">こんな方には特に合うと思います</h2>
+    <ul class="check-list">
+      <li>自然の中で過ごす時間が好きな方</li>
+      <li>少人数の落ち着いた場が好きな方</li>
+      <li>自分の心を整えたい方</li>
+      <li>好きなことやこれからの暮らし方を安心して話したい方</li>
+    </ul>
+
+    <h2 class="sec-title-left" style="margin-top:48px">こんな方には今回は合わないかもしれません</h2>
+    <ul class="check-list">
+      <li>効率よくノウハウだけを学びたい方</li>
+      <li>大人数でにぎやかに盛り上がる場を求めている方</li>
+      <li>きっちり管理された体験ツアーを期待している方</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ========================================
+     18. 申込後の流れ
+     ======================================== -->
+<section class="bg-green-pale">
+  <div class="inner">
+    <h2 class="sec-title">申込後の流れ</h2>
+    <div class="flow">
+      <div class="flow-step"><span class="flow-num">1</span>ご希望のプランをお選びいただき、お申し込み</div>
+      <div class="flow-step"><span class="flow-num">2</span>お名前・電話番号・アレルギー情報をご入力</div>
+      <div class="flow-step"><span class="flow-num">3</span>クレジットカードでお支払い</div>
+      <div class="flow-step"><span class="flow-num">4</span>確認メール自動送付→受付完了</div>
+      <div class="flow-step"><span class="flow-num">5</span>開催の1週間前頃に詳細をご案内</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     19. キャンセルについて
+     ======================================== -->
+<section class="bg-white">
+  <div class="inner">
+    <h2 class="sec-title">キャンセルについて</h2>
+    <table class="info-table">
+      <tr>
+        <th>開催7日前まで</th>
+        <td>無料</td>
+      </tr>
+      <tr>
+        <th>開催6日前〜前日</th>
+        <td>参加費の50％</td>
+      </tr>
+      <tr>
+        <th>当日</th>
+        <td>参加費の100％</td>
+      </tr>
+    </table>
+    <p class="body" style="margin-top:16px;font-size:.88rem">
+      ※やむを得ない事情がある場合はご相談ください
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================
+     20. 最後のメッセージ
+     ======================================== -->
+<section class="bg-cream">
+  <div class="inner">
+    <h2 class="sec-title">最後に</h2>
+    <div class="closing-message">
+      <p style="margin-bottom:20px">
+        僕はこれまで、<br>
+        人の期待に応えることを優先する中で、<br>
+        自分の心を後回しにしてきた時期がありました。
+      </p>
+      <p style="margin-bottom:20px">
+        だからこそ今は、<br>
+        <strong>まず自分を満たすこと。</strong><br>
+        <strong>そして、溢れた分で人を満たすこと。</strong><br>
+        その順番を大切にしたいと思っています。
+      </p>
+      <p style="margin-bottom:20px">
+        今回の会も、<br>
+        そんな想いから開く小さな場です。
+      </p>
+      <p style="margin-bottom:20px">
+        土にふれて、<br>
+        語って、<br>
+        ゆるむ。
+      </p>
+      <p style="margin-bottom:20px">
+        その中で、<br>
+        少し置き去りにしていた自分の感覚や、<br>
+        好きなこと、大切にしたいことを<br>
+        思い出していける時間になったら嬉しいです。
+      </p>
+      <p>
+        八ヶ岳で、ご一緒できたら嬉しいです。
+      </p>
+    </div>
+    <!-- ★ 写真差し替え：深山さんの写真や八ヶ岳の風景 -->
+    <div class="photo" style="margin-top:32px">写真：深山義人さんの写真 or 八ヶ岳の風景</div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     21. 最後のCTA
+     ======================================== -->
+<section class="bg-white" style="padding:64px 24px">
+  <div class="inner" style="text-align:center">
+    <p class="body" style="text-align:center;margin-bottom:28px">
+      今の自分に、こういう時間が少し必要かもしれない。<br>
+      そう感じた方は、下のボタンからお申し込みください。
+    </p>
+    <div class="cta-wrap" style="margin:0">
+      <!-- ★ リンク差し替え：申込フォームURL -->
+      <a href="#apply" class="cta-btn">この会に申し込む</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     フッター
+     ======================================== -->
+<footer>
+  <p>© 2026 深山義人｜奥八ヶ岳</p>
+</footer>
+
+</body>
+</html>
