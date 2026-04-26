@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>週末自然暮らしの学校｜まず満たす。溢れる。届く。</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --g1:#2a4e27;--g2:#3a6635;--g3:#5e8c54;--earth:#8b6535;
+  --sand:#d9b97a;--cream:#fdf8f0;--light:#f4efe4;--border:#ddd5c5;
+  --text:#232018;--text2:#3d3530;
+}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--text);background:#fff;line-height:1.85;overflow-x:hidden}
+
+/* STRIP */
+.strip{display:grid;grid-template-columns:repeat(6,1fr);height:160px;overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.strip img:hover{transform:scale(1.06)}
+
+/* BASE */
+section{padding:96px 24px;position:relative}
+.inner{max-width:740px;margin:0 auto}
+.inner-w{max-width:1080px;margin:0 auto}
+.lbl{font-size:.7rem;letter-spacing:.3em;color:var(--g3);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.lbl::before,.lbl::after{content:"";height:1px;background:var(--border);width:36px}
+.h2{font-family:"Noto Serif JP",serif;font-size:clamp(1.55rem,4vw,2.4rem);font-weight:600;color:var(--g1);line-height:1.5;margin-bottom:32px;letter-spacing:.03em}
+.body-t{font-size:1.02rem;line-height:2.05;color:var(--text2);margin-bottom:22px}
+
+/* HIGHLIGHTS */
+.hl{background:linear-gradient(transparent 60%,rgba(255,220,50,.55) 60%);display:inline}
+.hl-s{background:linear-gradient(transparent 60%,rgba(255,220,50,.55) 60%);display:inline;font-weight:600}
+
+/* EMPATHY */
+.empathy{background:var(--cream)}
+.checks{display:grid;gap:12px;margin:32px 0}
+.ci{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:#fff;border-radius:14px;border-left:4px solid var(--g3);font-size:.97rem;line-height:1.85;color:var(--text2);box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.ci .ic{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.e-close{font-family:"Noto Serif JP",serif;font-size:1.08rem;color:var(--g2);line-height:2;margin-top:32px;padding:26px 34px;background:#fff;border-radius:16px;border-left:4px solid var(--sand)}
+
+/* QUOTE BLOCK */
+.qb{font-family:"Noto Serif JP",serif;font-size:clamp(1.05rem,2.5vw,1.35rem);font-weight:500;color:var(--g1);line-height:1.9;padding:34px 38px;background:var(--cream);border-radius:20px;border-left:5px solid var(--g3);margin:38px 0}
+
+/* PHOTO GRIDS */
+.mg{display:grid;gap:4px}
+.mg-2{grid-template-columns:1fr 1fr}
+.mg-3{grid-template-columns:repeat(3,1fr)}
+.mg-4{grid-template-columns:repeat(4,1fr)}
+.mg img{width:100%;object-fit:cover;display:block}
+.mg-3 img{height:320px}
+.mg-4 img{height:200px}
+.mg-2 img{height:300px}
+
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.chip{background:var(--cream);color:var(--g2);border:1.5px solid var(--g3);border-radius:100px;padding:8px 22px;font-size:.9rem;font-weight:500}
+
+/* REFRAME（常識の問い直し） */
+.reframe-sec{background:#fff}
+.reframe-cards{display:grid;gap:24px;margin-top:44px}
+.rcard{background:var(--cream);border-radius:18px;padding:32px 36px;border-top:4px solid var(--g3)}
+.rcard-num{font-size:.72rem;letter-spacing:.28em;color:var(--g3);margin-bottom:14px}
+.rcard-q{font-family:"Noto Serif JP",serif;font-size:1.02rem;font-weight:600;color:var(--text);line-height:1.7;margin-bottom:16px}
+.rcard-a{font-size:.95rem;line-height:2;color:var(--text2);padding-top:16px;border-top:1px solid var(--border)}
+
+/* PHASES */
+.phases{background:#fff}
+.phase-wrap{display:grid;gap:40px}
+.phase{background:var(--cream);border-radius:22px;padding:52px 48px;border-top:6px solid var(--g2)}
+.phase-b{border-top-color:var(--earth)}
+.pnum{font-size:.82rem;letter-spacing:.28em;color:#fff;background:var(--g2);padding:7px 22px;border-radius:100px;display:inline-block;margin-bottom:22px;font-weight:500}
+.phase-b .pnum{background:var(--earth)}
+.pt{font-family:"Noto Serif JP",serif;font-size:clamp(1.5rem,3.8vw,2.1rem);font-weight:600;color:var(--g1);margin-bottom:12px;line-height:1.45}
+.ps{font-size:.9rem;color:var(--g3);margin-bottom:24px;letter-spacing:.1em}
+.pb{font-size:1rem;line-height:2.05;color:var(--text2);margin-bottom:24px}
+.dv{height:1px;background:var(--border);margin:26px 0}
+.sl{font-size:.75rem;letter-spacing:.2em;color:var(--g3);margin-bottom:12px;font-weight:500}
+.dl{list-style:none;display:flex;flex-direction:column;gap:10px}
+.dl li{display:flex;align-items:flex-start;gap:10px;font-size:.96rem;line-height:1.82;color:var(--text2)}
+.dl li::before{content:"—";color:var(--g3);flex-shrink:0}
+
+/* STEPS */
+.steps-sec{background:var(--light)}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.sc{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+.sc:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.sc img{width:100%;height:190px;object-fit:cover}
+.sb{padding:22px 26px}
+.sn{font-size:.68rem;letter-spacing:.22em;color:var(--g3);margin-bottom:7px}
+.stitle{font-family:"Noto Serif JP",serif;font-size:1.02rem;font-weight:600;color:var(--g1);line-height:1.5;margin-bottom:10px}
+.stxt{font-size:.88rem;line-height:1.9;color:var(--text2)}
+
+/* FUTURE */
+.future-sec{background:#fff}
+.fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:36px 0}
+.fcard{background:var(--cream);border-radius:18px;padding:32px 28px;border-top:4px solid var(--g3)}
+.fcard-n{font-size:2.2rem;font-weight:700;color:var(--border);font-family:"Noto Serif JP",serif;margin-bottom:12px;line-height:1}
+.fcard-t{font-family:"Noto Serif JP",serif;font-size:1rem;font-weight:600;color:var(--g1);margin-bottom:12px;line-height:1.55}
+.fcard-b{font-size:.88rem;line-height:1.9;color:var(--text2)}
+
+/* NIGHT BAND */
+.night-band{height:380px;position:relative;overflow:hidden}
+.night-band img{width:100%;height:100%;object-fit:cover}
+.night-band-ov{position:absolute;inset:0;background:rgba(0,0,0,.42);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.night-band-txt{font-family:"Noto Serif JP",serif;font-size:clamp(1.2rem,3.5vw,2.1rem);font-weight:500;color:#fff;line-height:1.85;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+
+/* STORY */
+.story{background:linear-gradient(160deg,#1b3017 0%,#2a4e27 100%);color:#fff;padding:96px 24px;overflow:hidden}
+.story .lbl{color:rgba(255,255,255,.45)}
+.story .lbl::before,.story .lbl::after{background:rgba(255,255,255,.15)}
+.story .h2{color:#dcebd4}
+.sir{margin:32px 0}
+.sir img{width:100%;height:320px;object-fit:cover;border-radius:14px}
+.sq{font-family:"Noto Serif JP",serif;font-size:clamp(1rem,2.4vw,1.28rem);line-height:2;color:#b2d898;padding:30px 34px;border-left:3px solid rgba(178,216,152,.45);background:rgba(255,255,255,.05);border-radius:0 14px 14px 0;margin:32px 0}
+
+/* PROFILE */
+.prof-outer{background:linear-gradient(160deg,#1b3017 0%,#2a4e27 100%);padding:72px 24px 96px}
+.prof-wrap{background:#fff;border-radius:20px;padding:52px 48px;box-shadow:0 8px 40px rgba(0,0,0,.25);max-width:740px;margin:0 auto}
+.prof-title{font-family:"Noto Serif JP",serif;font-size:1.5rem;font-weight:600;color:var(--g1);text-align:center;padding-bottom:16px;margin-bottom:44px;border-bottom:2px solid var(--sand);letter-spacing:.1em}
+.pr{display:grid;gap:40px;margin-bottom:40px;align-items:start}
+.pr-a{grid-template-columns:200px 1fr}
+.pr-b{grid-template-columns:1fr 240px}
+.pr-c{grid-template-columns:280px 1fr}
+.pr img{width:100%;border-radius:12px;object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,.13);display:block}
+.pr-a img{height:270px;object-position:center top}
+.pr-b img{height:260px}
+.pr-c img{height:310px}
+.pr-role{font-size:.83rem;color:var(--g3);letter-spacing:.08em;margin-bottom:6px}
+.pr-name{font-family:"Noto Serif JP",serif;font-size:1.75rem;font-weight:600;color:var(--g1);margin-bottom:4px}
+.pr-kana{font-size:.85rem;color:var(--text2);margin-bottom:22px}
+.pr-p{font-size:.96rem;line-height:2.05;color:var(--text2);margin-bottom:16px}
+.pr-cred-ttl{font-size:.92rem;font-weight:600;color:var(--g1);margin:4px 0 12px}
+.pr-ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.pr-ul li{font-size:.91rem;line-height:1.85;color:var(--text2);padding-left:16px;position:relative}
+.pr-ul li::before{content:"・";position:absolute;left:0;color:var(--g3)}
+
+/* PHOTO CARD SECTIONS */
+.photo-card-sec{position:relative;padding:40px 24px}
+.photo-card-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.photo-card-ov{position:absolute;inset:0;background:rgba(0,0,0,.22)}
+.photo-card{position:relative;z-index:2;background:#fff;border-radius:4px;max-width:780px;margin:0 auto;padding:48px 52px 52px}
+.photo-card-ttl{font-family:"Noto Serif JP",serif;font-size:clamp(1.15rem,3vw,1.5rem);font-weight:600;color:var(--text);margin-bottom:24px;text-align:center}
+.photo-card-catch{font-family:"Noto Serif JP",serif;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:600;color:var(--g1);margin-bottom:20px;text-align:center;letter-spacing:.08em;line-height:1.6}
+.photo-card-body{font-family:"Noto Serif JP",serif;font-size:clamp(.95rem,2vw,1.05rem);line-height:2.3;color:var(--text2);text-align:center}
+.photo-card-body p{margin-bottom:1.6em}
+.photo-card-body p:last-child{margin-bottom:0}
+.photo-card-last{font-family:"Noto Serif JP",serif;font-size:clamp(.95rem,2vw,1.05rem);line-height:2.3;color:var(--g1);text-align:center;margin-top:1.6em}
+
+/* BTN */
+.btn{display:inline-block;background:var(--g2);color:#fff;font-size:1rem;font-weight:500;letter-spacing:.1em;padding:18px 52px;border-radius:100px;text-decoration:none;transition:all .3s;box-shadow:0 6px 28px rgba(0,0,0,.28)}
+.btn:hover{background:var(--g1);transform:translateY(-2px)}
+
+/* FINAL CTA */
+.final-cta{background:var(--cream);text-align:center;padding:48px 24px 80px}
+.final-cta .h2{text-align:center}
+.cta-lead{font-size:1rem;line-height:2.1;color:var(--text2);max-width:540px;margin:0 auto 48px}
+.btnlg{display:inline-block;background:var(--g2);color:#fff;font-size:1.05rem;font-weight:500;letter-spacing:.12em;padding:22px 62px;border-radius:100px;text-decoration:none;transition:all .3s;box-shadow:0 8px 28px rgba(58,102,53,.35)}
+.btnlg:hover{background:var(--g1);transform:translateY(-3px)}
+.cta-sub{font-size:.78rem;color:var(--text2);opacity:.4;margin-top:16px;letter-spacing:.05em}
+
+/* CONSULTATION BOX */
+.consult-box{background:#fff;border-radius:20px;padding:40px 44px;max-width:540px;margin:0 auto 40px;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.consult-label{font-size:.72rem;letter-spacing:.2em;color:var(--g3);margin-bottom:10px}
+.consult-title{font-family:"Noto Serif JP",serif;font-size:1.2rem;font-weight:600;color:var(--g1);margin-bottom:16px}
+.consult-detail{font-size:.9rem;line-height:2;color:var(--text2);margin-bottom:24px}
+.consult-note{font-size:.78rem;color:var(--text2);opacity:.55;margin-bottom:28px;line-height:1.8}
+
+/* VIDEO LINK */
+.video-link{display:inline-block;border:1.5px solid var(--g2);color:var(--g2);font-size:.92rem;font-weight:500;letter-spacing:.08em;padding:14px 36px;border-radius:100px;text-decoration:none;transition:all .3s}
+.video-link:hover{background:var(--g2);color:#fff}
+
+footer{background:var(--g1);color:rgba(255,255,255,.42);text-align:center;padding:38px 24px;font-size:.76rem;letter-spacing:.08em;line-height:2.1}
+footer a{color:rgba(255,255,255,.42);text-decoration:none}
+footer a:hover{color:rgba(255,255,255,.7)}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.fade.on{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .strip{grid-template-columns:repeat(3,1fr);height:110px}
+  .mg-4{grid-template-columns:repeat(2,1fr)}.mg-3{grid-template-columns:1fr}
+  .mg-3 img{height:180px}
+  .sg{grid-template-columns:1fr}
+  .fcards{grid-template-columns:1fr}
+  .reframe-cards{gap:16px}
+  .phase{padding:34px 26px}
+  .night-band{height:240px}
+  .qb{padding:26px 26px}
+  .prof-wrap{padding:32px 20px}
+  .pr-a,.pr-b,.pr-c{grid-template-columns:1fr;gap:24px}
+  .pr-a img{height:220px}
+  .pr-b img{height:200px;order:-1}
+  .pr-c img{height:200px}
+  .photo-card{padding:32px 22px}
+  .consult-box{padding:28px 22px}
+  .consult-box .btnlg{display:block;width:100%;padding:18px 16px;font-size:.98rem}
+  .btnlg{padding:18px 36px}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ================================================
+     1. イントロ（photo-card-sec）
+     ================================================ -->
+<div class="photo-card-sec" style="background:url('IMG_5782.jpeg') center/cover no-repeat;">
+<div class="photo-card-ov"></div>
+<div class="photo-card fade">
+  <p class="photo-card-ttl">「週末自然暮らしの学校」とは、</p>
+  <div class="photo-card-catch">まず満たす。溢れる。届く。</div>
+  <div class="photo-card-body">
+    <p>「都会の息苦しさ」や<br>「心身の辛く大変な体験」から<br><span class="hl">生きづらさ</span>を感じていたり、</p>
+    <p><span class="hl">「他人の期待に応えてばかり」</span><br>の人生に疲れ果て、<br>一番大切な<span class="hl hl-s">「自分の期待に応える」</span>ことを<br>忘れていませんか？</p>
+    <p>忙しい日常にかき消され、見失った<br><span class="hl">大切な「自分らしさ・心豊かさ」</span>を<br>「八ヶ岳の自然の恵み」を通じて取り戻し、<br>もっと自由に、楽しく生きていく。</p>
+    <p>「週末自然暮らしの学校」は、<br><span class="hl">【自然・癒し・アニメ・海外】</span>を通じ、<br>心に響く「価値ある体験」を<br>創り・届けることで、</p>
+  </div>
+  <div class="photo-card-last">
+    <span class="hl hl-s">「まず自分を満たし、溢れた分で人を満たす生き方」</span><br>を身につけるための<br>半年間の実践型プログラムです。
+  </div>
+</div>
+</div>
+
+
+<!-- ================================================
+     2. ストリップ（6枚写真）
+     ================================================ -->
+<div class="strip">
+  <img src="IMG_5757.jpeg" alt="">
+  <img src="IMG_5758.jpeg" alt="">
+  <img src="IMG_5765.jpeg" alt="">
+  <img src="IMG_5791.jpeg" alt="">
+  <img src="IMG_1988.jpeg" alt="">
+  <img src="IMG_5762.jpeg" alt="">
+</div>
+
+
+<!-- ================================================
+     3. 共感（こんなふうに感じていませんか？）
+     ================================================ -->
+<section class="empathy"><div class="inner">
+<p class="lbl">あなたへ</p>
+<h2 class="h2 fade">こんなふうに感じていませんか？</h2>
+<div class="checks fade">
+<div class="ci"><span class="ic">🌿</span><span>他人や組織の期待に応えることが当たり前になっていて、気づけば<span class="hl">自分のことを後回し</span>にしている</span></div>
+<div class="ci"><span class="ic">🌿</span><span>頑張っているのに、どこか<span class="hl">心が満たされず</span>、ずっと何かが足りないような感覚がある</span></div>
+<div class="ci"><span class="ic">🌿</span><span>本当はもっと自由に、もっと楽しく生きたいのに、<span class="hl">その感覚がわからなくなっている</span></span></div>
+<div class="ci"><span class="ic">🌿</span><span>自然の中でホッとしたり、心と体をゆるめたりしたいけれど、<span class="hl">きっかけがなく動けずにいる</span></span></div>
+<div class="ci"><span class="ic">🌿</span><span>自分の好きや心が動くことを、ただ趣味で終わらせるのではなく、<span class="hl">誰かの笑顔につながる形</span>にしてみたい</span></div>
+<div class="ci"><span class="ic">🌿</span><span><span class="hl">同じ想いを持つ仲間とワイワイ楽しく</span>アイデアを出し合いながら、何かを一緒に形にしてみたい</span></div>
+<div class="ci"><span class="ic">🌿</span><span>まず自分が満たされ、<span class="hl">その溢れた分で人に喜んでもらえる生き方</span>を体験してみたい</span></div>
+<div class="ci"><span class="ic">🌿</span><span>人に喜んでもらい、その<span class="hl">"ありがとう"をお金という形で受け取ること</span>に、どこかあこがれがある</span></div>
+<div class="ci"><span class="ic">🌿</span><span>笑い合い、応援し合い、<span class="hl">一生涯付き合っていける仲間</span>と出会いたい</span></div>
+</div>
+<div class="e-close fade">もしひとつでも重なるものがあれば、<br>この学校は、そんなあなたのための場かもしれません。</div>
+</div></section>
+
+
+<!-- ================================================
+     4. 大切にしていること
+     ================================================ -->
+<section style="background:#fff;padding:96px 24px"><div class="inner">
+<p class="lbl">大切にしていること</p>
+<h2 class="h2 fade">まず自分たちが、<br>満たされることから始まる</h2>
+<div class="qb fade">誰かに与える前に。何かを頑張って証明する前に。<br>まず自分たち自身が、ホッとできること。笑い合えること。安心していられること。<br>「こういう時間が欲しかった」と思えること。</div>
+<p class="body-t fade">この学校では、そこを何より大切にしています。そのうえで、同じ想いを共有した仲間と、八ヶ岳の自然の中でワイワイ楽しくアイデアを出し合いながら、「心豊かさを取り戻す滞在と体験」を一緒に形にしていきます。</p>
+<div class="chips fade"><span class="chip">一緒に考え</span><span class="chip">一緒に動き</span><span class="chip">一緒に笑い</span><span class="chip">一緒に形にしていく</span></div>
+<p class="body-t fade">そのプロセスそのものが、まず自分たちを満たしてくれる。そして、そこから溢れた分を人に届け、喜んでもらい、"ありがとう"をお金という形で受け取る体験へとつながっていきます。</p>
+<div class="mg mg-2 fade" style="margin-top:44px">
+  <img src="IMG_3282.jpeg" alt="みんなで過ごす時間" style="height:300px">
+  <img src="IMG_1988.jpeg" alt="自然の中での時間" style="height:300px">
+</div>
+</div></section>
+
+
+<!-- ================================================
+     5. こんな方へ
+     ================================================ -->
+<section style="background:var(--light);padding:96px 24px"><div class="inner">
+<p class="lbl">こんな方へ</p>
+<h2 class="h2 fade">こんな方と、<br>この場を育てていけたら嬉しいです</h2>
+<div class="checks fade">
+<div class="ci"><span class="ic">✨</span><span><span class="hl">まず自分を満たすこと</span>を大切にしたい</span></div>
+<div class="ci"><span class="ic">✨</span><span><span class="hl">その溢れた分で、人を笑顔にする生き方</span>を体験してみたい</span></div>
+<div class="ci"><span class="ic">✨</span><span>自然の中でホッとしながら、<span class="hl">自分らしさを取り戻していきたい</span></span></div>
+<div class="ci"><span class="ic">✨</span><span>自分の好きや心が動くことを、<span class="hl">誰かの喜びにつながる形</span>にしてみたい</span></div>
+<div class="ci"><span class="ic">✨</span><span><span class="hl">同じ想いを共有できる仲間とワイワイ楽しく</span>アイデアを出し合いながら、何かを形にしてみたい</span></div>
+<div class="ci"><span class="ic">✨</span><span>人に喜んでもらい、その<span class="hl">"ありがとう"をお金という形で受け取る</span>体験をしてみたい</span></div>
+<div class="ci"><span class="ic">✨</span><span>笑い合い、応援し合いながら、<span class="hl">一生涯付き合っていけるような仲間</span>と出会いたい</span></div>
+</div>
+<div class="qb fade" style="font-size:1rem;margin-top:44px">この学校は、何かができる人だけの場でも、特別なスキルがある人だけの場でもありません。<br><br>「こういう生き方があったらいいな」「こんな仲間と出会えたらいいな」<br>そんな気持ちが少しでもある方と、この場を少しずつ育てていけたら嬉しいです。</div>
+</div></section>
+
+
+<!-- ================================================
+     6. 常識の問い直し（新セクション）
+     ================================================ -->
+<section class="reframe-sec" style="padding:96px 24px"><div class="inner">
+<p class="lbl">問い直してみる</p>
+<h2 class="h2 fade">ずっと当たり前だと<br>思っていたこと</h2>
+<p class="body-t fade">「がんばることが正しい」「好きなことは仕事にならない」。そう信じて、自分を後回しにしてきませんでしたか？</p>
+<div class="reframe-cards fade">
+
+  <div class="rcard">
+    <p class="rcard-num">問い 01</p>
+    <p class="rcard-q">「まず頑張ること。自分を満たすのは、そのあと。」</p>
+    <p class="rcard-a">からっぽのまま、誰かを満たし続けることはできません。「まず自分」は、わがままではなく、溢れた分を届けるための、唯一の順番です。</p>
+  </div>
+
+  <div class="rcard">
+    <p class="rcard-num">問い 02</p>
+    <p class="rcard-q">「好きなことと仕事は、分けて考えるべきだ。」</p>
+    <p class="rcard-a">その境界線は、誰かが勝手に引いたものです。「好き」が価値になる場所は、探せば、必ずあります。</p>
+  </div>
+
+  <div class="rcard">
+    <p class="rcard-num">問い 03</p>
+    <p class="rcard-q">「生き方を変えるには、大きな決断が必要だ。」</p>
+    <p class="rcard-a">週末一回、土にふれるだけで、人は変わり始めます。大きな決断より、小さな体験の積み重ねが先です。</p>
+  </div>
+
+  <div class="rcard">
+    <p class="rcard-num">問い 04</p>
+    <p class="rcard-q">「アニメや癒しが好きなのは、現実逃避かもしれない。」</p>
+    <p class="rcard-a">それはあなたの感度が「本当の豊かさ」を知っているサインです。逃げているのではなく、正直に感じているだけ。</p>
+  </div>
+
+</div>
+</div></section>
+
+
+<!-- ================================================
+     7. 講座の流れ（基礎編 / 応用編）
+     ================================================ -->
+<section class="phases"><div class="inner">
+<p class="lbl">講座の流れ</p>
+<h2 class="h2 fade">2つの段階で、<br>少しずつ進んでいきます</h2>
+<div class="phase-wrap">
+
+<div class="phase fade">
+<span class="pnum">基礎編 ・ 前半3ヶ月</span>
+<h3 class="pt">まず自分たちが満たされる<br>土台を育てる時間</h3>
+<p class="ps">〜 頑張る前に、まず自分を取り戻す 〜</p>
+<p class="pb">基礎編では、何かを急いで形にする前に、まず自分たち自身がホッとし、笑い合い、満たされることを大切にします。<br><br>八ヶ岳の自然の中で、森を歩くこと。焚き火を囲むこと。畑に触れること。外でごはんを食べること。語ること。温泉でゆるむこと。そうした時間を仲間と一緒に過ごしながら、「まず自分を満たしていいんだ」という感覚を取り戻していきます。<br><br>さらに、語る会やしつもん読書会を通して、<strong>自分がどんな時に心が動くのか・何をしていると満たされるのか・自分の好きや喜びはどこにあるのか</strong>を、少しずつ見つけていきます。</p>
+<div class="dv"></div>
+<p class="sl">▼ 基礎編で実際に体験できること</p>
+<ul class="dl">
+  <li>森林浴・マインドフルネス・焚き火・温泉などを通して心と体をゆるめる</li>
+  <li>畑や自然の中で手を動かしながら、気持ちがほどけていく感覚を味わう</li>
+  <li>語る会やしつもん読書会で、自分の本音や好きを整理する</li>
+  <li>仲間と笑い合いながら、安心して一緒にいられる関係を育てる</li>
+  <li>応用編で形にしていくための"満たされる土台"をつくる</li>
+</ul>
+<div class="dv"></div>
+<p class="sl">▼ 基礎編を終える頃には</p>
+<ul class="dl">
+  <li>「まず自分を満たしていい」と感じられるようになる</li>
+  <li>自分らしさや好きを思い出し始める</li>
+  <li>一緒に笑い合える仲間との土台ができる</li>
+  <li>「こんな時間を人にも届けたいかもしれない」という感覚が芽生える</li>
+</ul>
+</div>
+
+<div class="phase phase-b fade">
+<span class="pnum">応用編 ・ 後半3ヶ月</span>
+<h3 class="pt">満たされて溢れた分を、<br>人に届ける実践の時間</h3>
+<p class="ps">〜 満たされたものを、仲間と一緒に人へ届ける 〜</p>
+<p class="pb">応用編では、基礎編で自分たちが満たされてきたものを、仲間と一緒に「心豊かさを取り戻す滞在と体験」として形にしていく実践に入ります。<br><br>どんな滞在ならホッとできるか。どんな体験なら笑顔になってもらえるか。自分たちの好きや得意をどう活かせるか——を、仲間とワイワイ楽しくアイデアを出し合いながら、少しずつ具体化していきます。<br><br>宿泊と組み合わせる体験のアイデアを出し、役割分担しながら実際に届けてみる。そして、人に喜んでもらい、その<strong>"ありがとう"をお金という形で受け取る体験</strong>へとつなげていきます。</p>
+<div class="dv"></div>
+<p class="sl">▼ 応用編で実際に体験できること</p>
+<ul class="dl">
+  <li>「心豊かさを取り戻す滞在と体験」のテーマを仲間と一緒に考える</li>
+  <li>宿泊＋体験の内容を企画し、形にしていく</li>
+  <li>役割分担しながら、実際に一緒につくる</li>
+  <li>伝え方や届け方も仲間と一緒に考える</li>
+  <li>小さく実践し、人に喜んでもらう感覚を体験する</li>
+  <li>"ありがとう"をお金という形で受け取る流れを体験する</li>
+</ul>
+<div class="dv"></div>
+<p class="sl">▼ 応用編を終える頃には</p>
+<ul class="dl">
+  <li>自分たちが満たされてつくったものが、人に届く喜びを実感できる</li>
+  <li>仲間と一緒にワイワイ形にしていく楽しさがわかる</li>
+  <li>自分らしさや好きを、誰かの笑顔につながる形にできる感覚が育つ</li>
+  <li>"ありがとう"をお金という形で受け取る体験ができる</li>
+  <li>その先の宿泊・体験ツアー・発展プロジェクトへ進む土台が整う</li>
+</ul>
+</div>
+
+</div></div></section>
+<div style="height:36px;background:var(--light)"></div>
+<div style="height:40px;background:var(--cream)"></div>
+
+
+<!-- ================================================
+     8. この先の未来
+     ================================================ -->
+<section class="future-sec"><div class="inner">
+<p class="lbl">この先の未来</p>
+<h2 class="h2 fade">この学校の先には、<br>仲間と一緒に育てていく未来があります</h2>
+<p class="body-t fade">この学校は、基礎編と応用編で終わりではありません。基礎編でまず自分たちが満たされ、応用編でその溢れた分を「心豊かさを取り戻す滞在と体験」として人に届ける。その先には、仲間と一緒にさらに育てていく未来があります。</p>
+<div class="fcards fade">
+<div class="fcard"><div class="fcard-n">01</div><h4 class="fcard-t">宿泊＋体験を、<br>もっと育てていく</h4><p class="fcard-b">応用編で形にした体験を、宿泊と組み合わせながら心に響く滞在へ育てていく。自然・癒し・アニメ・海外といった要素を掛け合わせながら、「また来たい」と思ってもらえる体験へ深めていきます。</p></div>
+<div class="fcard"><div class="fcard-n">02</div><h4 class="fcard-t">拠点そのものを、<br>仲間と一緒に育てていく</h4><p class="fcard-b">ログハウス拠点をDIYしながら、ただ泊まる場所ではなく心豊かさを取り戻す居場所として育てていく。場づくりそのものも、仲間とワイワイ楽しみながら実践していきます。</p></div>
+<div class="fcard"><div class="fcard-n">03</div><h4 class="fcard-t">体験を、もっと広く<br>届ける形にしていく</h4><p class="fcard-b">ebay輸出入、オンラインスクールづくり、AIの活用などを通して、自分たちがいない時にも価値が届き続ける形へ。喜びの循環が広がる仕組みを仲間と一緒に育てていきます。</p></div>
+</div>
+<div class="qb fade" style="font-size:1rem;margin-top:44px">ただ稼ぐためではなく、ただ効率化するためでもなく、<br>まず自分たちが満たされ、その溢れた分を人に届ける喜びの循環を、<br>もっと広く、もっと長く育てていく。<br><br>そんな未来を、同じ想いを共有した仲間と一緒に形にしていきます。</div>
+</div></section>
+
+
+<!-- ================================================
+     9. ナイトバンド（風景フルワイド）
+     ================================================ -->
+<div class="night-band">
+  <img src="IMG_5795.jpeg" alt="八ヶ岳の夕景">
+  <div class="night-band-ov">
+    <p class="night-band-txt">
+      まず自分を満たすこと。<br>
+      溢れた分で、人を満たすこと。<br>
+      その順番で生きると、<br>
+      少しずつ呼吸が深くなっていく。
+    </p>
+  </div>
+</div>
+
+
+<!-- ================================================
+     10. 変容のステップ（どう変わっていくか）
+     ================================================ -->
+<section class="steps-sec"><div class="inner-w">
+<p class="lbl" style="justify-content:center">この学校での変化</p>
+<h2 class="h2 fade" style="text-align:center">参加した人が、<br>どう変わっていくか</h2>
+<p class="body-t fade" style="text-align:center;max-width:600px;margin:0 auto 0">最初から大きく変わる人はほとんどいません。でも、少しずつ、確かに変わっていきます。</p>
+<div class="sg fade">
+  <div class="sc">
+    <img src="IMG_3282.jpeg" alt="みんなで過ごす時間">
+    <div class="sb">
+      <p class="sn">CHANGE 01</p>
+      <h4 class="stitle">「ここにいていい」<br>という感覚</h4>
+      <p class="stxt">土に触れ、火を囲んで、夕飯を一緒に作る。心が変わる前に、体が先にゆるんでいきます。「あ、ここにいていい場所だ」という安心が、まず来ます。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_5762.jpeg" alt="自然の中での気づき">
+    <div class="sb">
+      <p class="sn">CHANGE 02</p>
+      <h4 class="stitle">好きのタネが、<br>見えてくる</h4>
+      <p class="stxt">体がゆるむと、本音が出てきます。語る会の中で「これが好きだったんだ」と気づく瞬間がある。ずっと後回しにしてきた「好き」が、少しずつ浮かんでくる。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_3128.jpeg" alt="仲間と形にしていく">
+    <div class="sb">
+      <p class="sn">CHANGE 03</p>
+      <h4 class="stitle">「自分の好きで、<br>誰かが喜んでいる」</h4>
+      <p class="stxt">仲間と一緒に、自分の「好き」を少し形にしてみます。誰かに「ありがとう」と言われた瞬間——その感覚が、「続けていきたい」に変わっていきます。</p>
+    </div>
+  </div>
+</div>
+</div></section>
+
+
+<!-- ================================================
+     11. なぜこの講座をやるのか（story）
+     ================================================ -->
+<section class="story"><div class="inner">
+<p class="lbl">なぜ、この学校をつくったのか</p>
+<h2 class="h2 fade">この原点に、たどり着くまで。</h2>
+<div class="sir fade">
+  <img src="IMG_5795.jpeg" alt="八ヶ岳の自然" style="object-position:center">
+</div>
+<div class="sq fade">周りの期待に応えることや、ちゃんとしていなければいけないという思いに引っぱられ、自分の心が本当に求めているものがわからなくなっていたのだと思います。<br><br>だからこそ本当は、まず何より大切な自分を満たし、心からホッとできて、笑い合えて、安心して過ごせる場所が、ずっと欲しかったのだと思います。</div>
+<div class="sq fade">まず自分たちが満たされる。<br>そこから溢れた分を人に届け、喜んでもらい、<br>"ありがとう"をお金という形で受け取る。<br><br>そんな喜びの循環を、同じ想いを共有した仲間と<br>自然の中でワイワイ楽しみながら育てていく。<br>それが、この学校の原点です。</div>
+</div></section>
+
+
+<!-- ================================================
+     12. プロフィール
+     ================================================ -->
+<div class="prof-outer">
+<div class="prof-wrap fade">
+<h3 class="prof-title">講師プロフィール</h3>
+<div class="pr pr-a">
+  <img src="19_large.jpg" alt="深山義人">
+  <div>
+    <p class="pr-role">「心豊かな・自然暮らしトレーナー」</p>
+    <p class="pr-name">深山　義人</p>
+    <p class="pr-kana">（ミヤマヨシヒト）</p>
+    <p class="pr-p">建築インテリアデザイン学科卒業後、大手人材派遣会社にてトヨタ自動車製造工場に特化した新規派遣事業を上司と二人で立上げる。4年後、1200名以上の派遣従業員の方が安心して働ける環境とサポート体制を構築。その後、左足の大怪我を機に退職。</p>
+    <p class="pr-p">膝と腰の痛みに苛まれていた中、海外製の足腰への衝撃緩和シューズと出会い、英語も話せずWEB知識も無い中、独学で海外輸入品のWEB販売を研究し月商400万円を達成。</p>
+  </div>
+</div>
+<div class="pr pr-b">
+  <p class="pr-p">順調に売上が伸びる中、仕事に没頭するあまりワーカホリックとなり鬱病を発症。気力が湧かない中、都会の生きづらさから離れ「自然の中で、癒しのある暮らし」「罪悪感を感じず、素直に受け取る」事を、自分に許可すると……<br><br>八ヶ岳で始めたリトリートの宿（貸別荘）が1年で「予約の取れない人気の宿」に選ばれるなど、様々な事が無理なく好転し始める。</p>
+  <img src="IMG_3128.jpeg" alt="奥八ヶ岳リトリート 結びの杜">
+</div>
+<div class="pr pr-c">
+  <img src="IMG_5782.jpeg" alt="八ヶ岳の自然" style="object-position:center top">
+  <p class="pr-p">この経験から、都会の生きづらさに疲れた人が「自然の中で、心豊かな自分を取り戻す"2拠点生活からはじめる、新しい移住の形"」を学ぶ場として「週末自然暮らしプログラム」実践講座を体系化。<br><br>今後は、自身の「心身のつまずき体験」を活かし【心や体において、辛く・大変な想いをして来た人が、その経験を「ギフト＝価値」に変え、心豊かさを取り戻す】場と環境を創り「希望と勇気と笑顔を届ける」事で、自分らしく輝いて活躍する人を1人でも多く増やす活動を展開予定。</p>
+</div>
+<p class="pr-cred-ttl">■ 取得資格など</p>
+<ul class="pr-ul">
+  <li>Airbnbスーパーホスト（世界上位10％の高評価認定）</li>
+  <li>Airbnb「アニメ・君の名は。」聖地巡礼体験ツアー提供</li>
+  <li>海外商品輸入販売（シューズ・アウトドアウェア他）</li>
+  <li>スポーツ・シューフィッター・マスター資格</li>
+  <li>人材派遣元管理者資格</li>
+  <li>Earth Global Market 代表</li>
+</ul>
+<p class="pr-p">・趣味は、クラシック・エレキギター演奏。大型バイクツーリング。昔からアニメと猫好き。</p>
+</div>
+</div>
+
+
+<!-- ================================================
+     13. 最後に（photo-card-sec）
+     ================================================ -->
+<div class="photo-card-sec" id="cta" style="background:url('IMG_1988.jpeg') center/cover no-repeat;">
+<div class="photo-card-ov"></div>
+<div class="photo-card fade">
+  <p class="photo-card-ttl">最後に</p>
+  <div class="photo-card-body">
+    <p>あなたが生きづらいのは、<br>弱いからではありません。</p>
+    <p>感じる力が強いから、人より早く疲れる。<br>感度が高いから、「何かが違う」とずっと気づいている。<br>それは、あなたの本当の強みです。</p>
+    <p>僕自身も、ずっと誰かの期待に応えることを優先してきました。<br>自分を満たすことが、どこか後回しでした。</p>
+    <p>でも、奥八ヶ岳の自然の中で暮らし始めてから、<br>少しずつわかってきたことがあります。</p>
+    <p><span class="hl hl-s">まず自分を満たすこと。</span><br><span class="hl hl-s">溢れた分で、人を満たすこと。</span><br>その順番で生きると、<br>少しずつ呼吸が深くなっていく。</p>
+    <p>この学校は、そんな生き方を<br>一緒に体験していく場所です。</p>
+    <p>同じ感覚を持つ仲間と、<br>奥八ヶ岳でお会いできることを楽しみにしています。</p>
+  </div>
+</div>
+</div>
+
+
+<!-- ================================================
+     14. 最終CTA（無料相談会）
+     ================================================ -->
+<section class="final-cta"><div class="inner">
+<p class="lbl" style="justify-content:center;margin-bottom:20px">小さな入口から</p>
+<h2 class="h2 fade">まずは、<br>話を聞いてみてください</h2>
+<p class="cta-lead fade">いきなり大きな一歩でなくて大丈夫です。<br>まずは、この学校が大切にしている世界観や想いを、気軽に聞きに来てください。<br><br>もしどこかに重なる想いがあるなら、<br>まずは小さな入口から、少しずつつながっていただけたら嬉しいです。</p>
+
+<div class="consult-box fade">
+  <p class="consult-label">FREE CONSULTATION</p>
+  <p class="consult-title">無料相談会</p>
+  <p class="consult-detail">
+    開催形式：オンライン（Zoom）<br>
+    所要時間：30〜45分程度<br>
+    参加費：無料
+  </p>
+  <p class="consult-note">
+    ※まずは学校について気軽にお話しする場です。<br>
+    　お申し込みの義務はありません。
+  </p>
+  <div class="fade"><a href="#" class="btnlg">無料相談会に申し込む</a></div>
+</div>
+
+<p class="body-t fade" style="font-size:.92rem">まずは動画で世界観を知りたい方は、<br>スライド動画もご覧いただけます。</p>
+<div class="fade"><a href="#" class="video-link">スライド動画を見る（無料）</a><p class="cta-sub">無料 ・ いつでもご覧いただけます</p></div>
+</div></section>
+
+
+<!-- ================================================
+     フッター
+     ================================================ -->
+<footer>
+<p>週末自然暮らしの学校 ｜ 奥八ヶ岳リトリート 結びの杜</p>
+<p>長野県南佐久郡南相木村 ／ info@living-in-nature.jp</p>
+<p style="margin-top:6px">
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="tokutei.html">特定商取引法に基づく表記</a>
+</p>
+<p style="margin-top:6px">© 2026 Earth Global Market</p>
+</footer>
+
+
+<script>
+const obs=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add("on"),i*80);obs.unobserve(el.target)}})},{threshold:0.1});
+document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
