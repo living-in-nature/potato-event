@@ -70,13 +70,24 @@ section{padding:96px 24px;position:relative}
 .chips{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
 .chip{background:var(--cream);color:var(--g2);border:1.5px solid var(--g3);border-radius:100px;padding:8px 22px;font-size:.9rem;font-weight:500}
 
-/* REFRAME（常識の問い直し） */
-.reframe-sec{background:#fff}
-.reframe-cards{display:grid;gap:24px;margin-top:44px}
-.rcard{background:var(--cream);border-radius:18px;padding:32px 36px;border-top:4px solid var(--g3)}
-.rcard-num{font-size:.72rem;letter-spacing:.28em;color:var(--g3);margin-bottom:14px}
-.rcard-q{font-family:"Noto Serif JP",serif;font-size:1.02rem;font-weight:600;color:var(--text);line-height:1.7;margin-bottom:16px}
-.rcard-a{font-size:.95rem;line-height:2;color:var(--text2);padding-top:16px;border-top:1px solid var(--border)}
+/* REFRAME（常識の問い直し）— 濃いグリーンテーマ */
+.reframe-sec{background:linear-gradient(170deg,#1c3318 0%,#2d5429 55%,#1c3318 100%)}
+.reframe-sec .lbl{color:rgba(255,255,255,.4);justify-content:center}
+.reframe-sec .lbl::before,.reframe-sec .lbl::after{background:rgba(255,255,255,.12)}
+.reframe-sec .h2{color:#dcebd4;text-align:center}
+.reframe-sec .body-t{color:rgba(255,255,255,.62);text-align:center;max-width:580px;margin:0 auto 44px}
+.reframe-cards{display:grid;gap:28px;margin-top:0}
+.rcard{background:rgba(255,255,255,.06);border-radius:22px;padding:40px 44px;border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden}
+.rcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--g3),var(--sand),var(--g3))}
+.rcard-ghost{font-size:5.5rem;font-weight:700;font-family:"Noto Serif JP",serif;color:rgba(255,255,255,.05);line-height:1;position:absolute;bottom:10px;right:22px;letter-spacing:-.02em;pointer-events:none;user-select:none}
+.rcard-num{font-size:.68rem;letter-spacing:.3em;color:var(--g3);margin-bottom:16px;font-weight:500}
+.rcard-q{font-family:"Noto Serif JP",serif;font-size:1.05rem;font-weight:600;color:rgba(255,255,255,.88);line-height:1.75;margin-bottom:18px;padding:16px 22px;background:rgba(255,255,255,.06);border-radius:10px;border-left:3px solid var(--g3)}
+.rcard-a{font-size:.94rem;line-height:2.05;color:rgba(255,255,255,.62)}
+
+/* PHASE IMAGES */
+.phase-imgs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:32px;border-radius:12px;overflow:hidden}
+.phase-imgs img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .4s}
+.phase-imgs img:hover{transform:scale(1.04)}
 
 /* PHASES */
 .phases{background:#fff}
@@ -94,7 +105,7 @@ section{padding:96px 24px;position:relative}
 .dl li{display:flex;align-items:flex-start;gap:10px;font-size:.96rem;line-height:1.82;color:var(--text2)}
 .dl li::before{content:"—";color:var(--g3);flex-shrink:0}
 
-/* STEPS */
+/* STEPS (sc grid) */
 .steps-sec{background:var(--light)}
 .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
 .sc{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
@@ -199,7 +210,11 @@ footer a:hover{color:rgba(255,255,255,.7)}
   .sg{grid-template-columns:1fr}
   .fcards{grid-template-columns:1fr}
   .reframe-cards{gap:16px}
+  .rcard{padding:28px 28px}
+  .rcard-ghost{font-size:4rem;bottom:8px;right:16px}
   .phase{padding:34px 26px}
+  .phase-imgs{grid-template-columns:repeat(2,1fr)}
+  .phase-imgs img{height:130px}
   .night-band{height:240px}
   .qb{padding:26px 26px}
   .prof-wrap{padding:32px 20px}
@@ -316,46 +331,50 @@ footer a:hover{color:rgba(255,255,255,.7)}
 <p class="lbl">こんな方へ</p>
 <h2 class="h2 fade">こんな方と、<br>この場を育てていけたら嬉しいです</h2>
 <div class="checks fade">
-<div class="ci"><span class="ic">✨</span><span><span class="hl">まず自分を満たすこと</span>を大切にしたい</span></div>
-<div class="ci"><span class="ic">✨</span><span><span class="hl">その溢れた分で、人を笑顔にする生き方</span>を体験してみたい</span></div>
-<div class="ci"><span class="ic">✨</span><span>自然の中でホッとしながら、<span class="hl">自分らしさを取り戻していきたい</span></span></div>
-<div class="ci"><span class="ic">✨</span><span>自分の好きや心が動くことを、<span class="hl">誰かの喜びにつながる形</span>にしてみたい</span></div>
-<div class="ci"><span class="ic">✨</span><span><span class="hl">同じ想いを共有できる仲間とワイワイ楽しく</span>アイデアを出し合いながら、何かを形にしてみたい</span></div>
-<div class="ci"><span class="ic">✨</span><span>人に喜んでもらい、その<span class="hl">"ありがとう"をお金という形で受け取る</span>体験をしてみたい</span></div>
-<div class="ci"><span class="ic">✨</span><span>笑い合い、応援し合いながら、<span class="hl">一生涯付き合っていけるような仲間</span>と出会いたい</span></div>
+<div class="ci"><span class="ic">✨</span><span>急ぐより「<span class="hl">じっくり育てていく</span>」感覚で、仲間とともに関わり続けたい方</span></div>
+<div class="ci"><span class="ic">✨</span><span>自然の中でゆるみながら、<span class="hl">自分らしさを少しずつ取り戻したい</span>方</span></div>
+<div class="ci"><span class="ic">✨</span><span>好きなことや心が動くことが、<span class="hl">誰かの喜びにつながったら嬉しい</span>と感じる方</span></div>
+<div class="ci"><span class="ic">✨</span><span>まずは小さな一歩から、<span class="hl">安心して踏み出せる場所</span>を探している方</span></div>
+<div class="ci"><span class="ic">✨</span><span>完璧じゃなくていい、<span class="hl">手探りで一緒に形にしていく</span>プロセスを楽しみたい方</span></div>
+<div class="ci"><span class="ic">✨</span><span>自分にとって大切な生き方を、<span class="hl">仲間と共に育てていきたい</span>方</span></div>
+<div class="ci"><span class="ic">✨</span><span>「こんな場所があったらいいな」という感覚を、<span class="hl">ずっと大切にしてきた</span>方</span></div>
 </div>
 <div class="qb fade" style="font-size:1rem;margin-top:44px">この学校は、何かができる人だけの場でも、特別なスキルがある人だけの場でもありません。<br><br>「こういう生き方があったらいいな」「こんな仲間と出会えたらいいな」<br>そんな気持ちが少しでもある方と、この場を少しずつ育てていけたら嬉しいです。</div>
 </div></section>
 
 
 <!-- ================================================
-     6. 常識の問い直し（新セクション）
+     6. 常識の問い直し（新デザイン）
      ================================================ -->
 <section class="reframe-sec" style="padding:96px 24px"><div class="inner">
 <p class="lbl">問い直してみる</p>
-<h2 class="h2 fade">ずっと当たり前だと<br>思っていたこと</h2>
-<p class="body-t fade">「がんばることが正しい」「好きなことは仕事にならない」。そう信じて、自分を後回しにしてきませんでしたか？</p>
+<h2 class="h2 fade">ずっと当たり前だと<br>思っていたことが、<br>実は当たり前じゃなかった。</h2>
+<p class="body-t fade">「がんばることが正しい」「好きなことは仕事にならない」。そう信じてきたことが、少しずつほどけていく。その気づきが、呼吸を楽にしてくれます。</p>
 <div class="reframe-cards fade">
 
   <div class="rcard">
+    <p class="rcard-ghost">01</p>
     <p class="rcard-num">問い 01</p>
     <p class="rcard-q">「まず頑張ること。自分を満たすのは、そのあと。」</p>
     <p class="rcard-a">からっぽのまま、誰かを満たし続けることはできません。「まず自分」は、わがままではなく、溢れた分を届けるための、唯一の順番です。</p>
   </div>
 
   <div class="rcard">
+    <p class="rcard-ghost">02</p>
     <p class="rcard-num">問い 02</p>
     <p class="rcard-q">「好きなことと仕事は、分けて考えるべきだ。」</p>
     <p class="rcard-a">その境界線は、誰かが勝手に引いたものです。「好き」が価値になる場所は、探せば、必ずあります。</p>
   </div>
 
   <div class="rcard">
+    <p class="rcard-ghost">03</p>
     <p class="rcard-num">問い 03</p>
     <p class="rcard-q">「生き方を変えるには、大きな決断が必要だ。」</p>
     <p class="rcard-a">週末一回、土にふれるだけで、人は変わり始めます。大きな決断より、小さな体験の積み重ねが先です。</p>
   </div>
 
   <div class="rcard">
+    <p class="rcard-ghost">04</p>
     <p class="rcard-num">問い 04</p>
     <p class="rcard-q">「アニメや癒しが好きなのは、現実逃避かもしれない。」</p>
     <p class="rcard-a">それはあなたの感度が「本当の豊かさ」を知っているサインです。逃げているのではなく、正直に感じているだけ。</p>
@@ -378,6 +397,12 @@ footer a:hover{color:rgba(255,255,255,.7)}
 <h3 class="pt">まず自分たちが満たされる<br>土台を育てる時間</h3>
 <p class="ps">〜 頑張る前に、まず自分を取り戻す 〜</p>
 <p class="pb">基礎編では、何かを急いで形にする前に、まず自分たち自身がホッとし、笑い合い、満たされることを大切にします。<br><br>八ヶ岳の自然の中で、森を歩くこと。焚き火を囲むこと。畑に触れること。外でごはんを食べること。語ること。温泉でゆるむこと。そうした時間を仲間と一緒に過ごしながら、「まず自分を満たしていいんだ」という感覚を取り戻していきます。<br><br>さらに、語る会やしつもん読書会を通して、<strong>自分がどんな時に心が動くのか・何をしていると満たされるのか・自分の好きや喜びはどこにあるのか</strong>を、少しずつ見つけていきます。</p>
+<div class="phase-imgs fade">
+  <img src="IMG_5791.jpeg" alt="自然の中でゆるむ">
+  <img src="IMG_5762.jpeg" alt="仲間と過ごす時間">
+  <img src="IMG_3282.jpeg" alt="語り合う">
+  <img src="IMG_1988.jpeg" alt="土と自然に触れる">
+</div>
 <div class="dv"></div>
 <p class="sl">▼ 基礎編で実際に体験できること</p>
 <ul class="dl">
@@ -402,6 +427,12 @@ footer a:hover{color:rgba(255,255,255,.7)}
 <h3 class="pt">満たされて溢れた分を、<br>人に届ける実践の時間</h3>
 <p class="ps">〜 満たされたものを、仲間と一緒に人へ届ける 〜</p>
 <p class="pb">応用編では、基礎編で自分たちが満たされてきたものを、仲間と一緒に「心豊かさを取り戻す滞在と体験」として形にしていく実践に入ります。<br><br>どんな滞在ならホッとできるか。どんな体験なら笑顔になってもらえるか。自分たちの好きや得意をどう活かせるか——を、仲間とワイワイ楽しくアイデアを出し合いながら、少しずつ具体化していきます。<br><br>宿泊と組み合わせる体験のアイデアを出し、役割分担しながら実際に届けてみる。そして、人に喜んでもらい、その<strong>"ありがとう"をお金という形で受け取る体験</strong>へとつなげていきます。</p>
+<div class="phase-imgs fade">
+  <img src="IMG_3128.jpeg" alt="仲間と形にしていく">
+  <img src="IMG_5765.jpeg" alt="体験を届ける">
+  <img src="IMG_5795.jpeg" alt="奥八ヶ岳の景色">
+  <img src="IMG_4209.jpeg" alt="自然の中での活動">
+</div>
 <div class="dv"></div>
 <p class="sl">▼ 応用編で実際に体験できること</p>
 <ul class="dl">
@@ -424,44 +455,70 @@ footer a:hover{color:rgba(255,255,255,.7)}
 </div>
 
 </div></div></section>
-<div style="height:36px;background:var(--light)"></div>
-<div style="height:40px;background:var(--cream)"></div>
 
 
 <!-- ================================================
-     8. この先の未来
+     8. 実際にこんなことを、一緒に行います（Step01〜06）
      ================================================ -->
-<section class="future-sec"><div class="inner">
-<p class="lbl">この先の未来</p>
-<h2 class="h2 fade">この学校の先には、<br>仲間と一緒に育てていく未来があります</h2>
-<p class="body-t fade">この学校は、基礎編と応用編で終わりではありません。基礎編でまず自分たちが満たされ、応用編でその溢れた分を「心豊かさを取り戻す滞在と体験」として人に届ける。その先には、仲間と一緒にさらに育てていく未来があります。</p>
-<div class="fcards fade">
-<div class="fcard"><div class="fcard-n">01</div><h4 class="fcard-t">宿泊＋体験を、<br>もっと育てていく</h4><p class="fcard-b">応用編で形にした体験を、宿泊と組み合わせながら心に響く滞在へ育てていく。自然・癒し・アニメ・海外といった要素を掛け合わせながら、「また来たい」と思ってもらえる体験へ深めていきます。</p></div>
-<div class="fcard"><div class="fcard-n">02</div><h4 class="fcard-t">拠点そのものを、<br>仲間と一緒に育てていく</h4><p class="fcard-b">ログハウス拠点をDIYしながら、ただ泊まる場所ではなく心豊かさを取り戻す居場所として育てていく。場づくりそのものも、仲間とワイワイ楽しみながら実践していきます。</p></div>
-<div class="fcard"><div class="fcard-n">03</div><h4 class="fcard-t">体験を、もっと広く<br>届ける形にしていく</h4><p class="fcard-b">ebay輸出入、オンラインスクールづくり、AIの活用などを通して、自分たちがいない時にも価値が届き続ける形へ。喜びの循環が広がる仕組みを仲間と一緒に育てていきます。</p></div>
+<section style="background:var(--cream);padding:96px 24px"><div class="inner-w">
+<p class="lbl" style="justify-content:center">八ヶ岳での体験</p>
+<h2 class="h2 fade" style="text-align:center">実際にこんなことを、<br>一緒に行います</h2>
+<p class="body-t fade" style="text-align:center;max-width:580px;margin:0 auto 0">6ヶ月間、こんな体験を仲間と一緒に積み重ねていきます。<br>体験の中で、人は少しずつ変わっていきます。</p>
+<div class="sg fade" style="margin-top:44px">
+  <div class="sc">
+    <img src="IMG_5791.jpeg" alt="森と土に、まずゆるむ">
+    <div class="sb">
+      <p class="sn">STEP 01</p>
+      <h4 class="stitle">森と土に、<br>まずゆるむ</h4>
+      <p class="stxt">森林浴・焚き火・温泉など、まず心と体をゆるめる時間から始まります。「ここにいていい」という感覚が、何より先にやってきます。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_3282.jpeg" alt="焚き火を囲み、語り合う">
+    <div class="sb">
+      <p class="sn">STEP 02</p>
+      <h4 class="stitle">焚き火を囲み、<br>語り合う</h4>
+      <p class="stxt">夕暮れ時、焚き火の前に集まって好きなことや心が動いたことを話し合います。自分の声を聞く、静かな練習の時間です。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_1988.jpeg" alt="畑に触れ、土と対話する">
+    <div class="sb">
+      <p class="sn">STEP 03</p>
+      <h4 class="stitle">畑に触れ、<br>土と対話する</h4>
+      <p class="stxt">じゃがいも植えや収穫体験など、土に直接手を入れながら過ごします。手を動かすと、頭の中が少しずつ静かになっていきます。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_5762.jpeg" alt="しつもんで、自分を知る">
+    <div class="sb">
+      <p class="sn">STEP 04</p>
+      <h4 class="stitle">しつもんで、<br>自分を知る</h4>
+      <p class="stxt">語る会・しつもん読書会を通して、「何が好きか」「どんな時に満たされるか」を、仲間と一緒に掘り下げていきます。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_5765.jpeg" alt="みんなでアイデアを出し合う">
+    <div class="sb">
+      <p class="sn">STEP 05</p>
+      <h4 class="stitle">みんなで<br>アイデアを出し合う</h4>
+      <p class="stxt">どんな体験を届けたいかを仲間とワイワイ話し合います。自分の好きと人の喜びがつながる瞬間が、ここから生まれます。</p>
+    </div>
+  </div>
+  <div class="sc">
+    <img src="IMG_3128.jpeg" alt="形にして、人に届ける">
+    <div class="sb">
+      <p class="sn">STEP 06</p>
+      <h4 class="stitle">形にして、<br>人に届ける</h4>
+      <p class="stxt">仲間と一緒に企画した体験を実際に届けてみます。「ありがとう」と言ってもらえたとき、新しい何かが動き始めます。</p>
+    </div>
+  </div>
 </div>
-<div class="qb fade" style="font-size:1rem;margin-top:44px">ただ稼ぐためではなく、ただ効率化するためでもなく、<br>まず自分たちが満たされ、その溢れた分を人に届ける喜びの循環を、<br>もっと広く、もっと長く育てていく。<br><br>そんな未来を、同じ想いを共有した仲間と一緒に形にしていきます。</div>
 </div></section>
 
 
 <!-- ================================================
-     9. ナイトバンド（風景フルワイド）
-     ================================================ -->
-<div class="night-band">
-  <img src="IMG_5795.jpeg" alt="八ヶ岳の夕景">
-  <div class="night-band-ov">
-    <p class="night-band-txt">
-      まず自分を満たすこと。<br>
-      溢れた分で、人を満たすこと。<br>
-      その順番で生きると、<br>
-      少しずつ呼吸が深くなっていく。
-    </p>
-  </div>
-</div>
-
-
-<!-- ================================================
-     10. 変容のステップ（どう変わっていくか）
+     9. 参加した人が、どう変わっていくか
      ================================================ -->
 <section class="steps-sec"><div class="inner-w">
 <p class="lbl" style="justify-content:center">この学校での変化</p>
@@ -495,9 +552,44 @@ footer a:hover{color:rgba(255,255,255,.7)}
 </div>
 </div></section>
 
+<div style="height:36px;background:var(--light)"></div>
+<div style="height:40px;background:var(--cream)"></div>
+
 
 <!-- ================================================
-     11. なぜこの講座をやるのか（story）
+     10. この先の未来
+     ================================================ -->
+<section class="future-sec"><div class="inner">
+<p class="lbl">この先の未来</p>
+<h2 class="h2 fade">この学校の先には、<br>仲間と一緒に育てていく未来があります</h2>
+<p class="body-t fade">この学校は、基礎編と応用編で終わりではありません。基礎編でまず自分たちが満たされ、応用編でその溢れた分を「心豊かさを取り戻す滞在と体験」として人に届ける。その先には、仲間と一緒にさらに育てていく未来があります。</p>
+<div class="fcards fade">
+<div class="fcard"><div class="fcard-n">01</div><h4 class="fcard-t">宿泊＋体験を、<br>もっと育てていく</h4><p class="fcard-b">応用編で形にした体験を、宿泊と組み合わせながら心に響く滞在へ育てていく。自然・癒し・アニメ・海外といった要素を掛け合わせながら、「また来たい」と思ってもらえる体験へ深めていきます。</p></div>
+<div class="fcard"><div class="fcard-n">02</div><h4 class="fcard-t">拠点そのものを、<br>仲間と一緒に育てていく</h4><p class="fcard-b">ログハウス拠点をDIYしながら、ただ泊まる場所ではなく心豊かさを取り戻す居場所として育てていく。場づくりそのものも、仲間とワイワイ楽しみながら実践していきます。</p></div>
+<div class="fcard"><div class="fcard-n">03</div><h4 class="fcard-t">体験を、もっと広く<br>届ける形にしていく</h4><p class="fcard-b">ebay輸出入、オンラインスクールづくり、AIの活用などを通して、自分たちがいない時にも価値が届き続ける形へ。喜びの循環が広がる仕組みを仲間と一緒に育てていきます。</p></div>
+</div>
+<div class="qb fade" style="font-size:1rem;margin-top:44px">ただ稼ぐためではなく、ただ効率化するためでもなく、<br>まず自分たちが満たされ、その溢れた分を人に届ける喜びの循環を、<br>もっと広く、もっと長く育てていく。<br><br>そんな未来を、同じ想いを共有した仲間と一緒に形にしていきます。</div>
+</div></section>
+
+
+<!-- ================================================
+     11. ナイトバンド（風景フルワイド）
+     ================================================ -->
+<div class="night-band">
+  <img src="IMG_5795.jpeg" alt="八ヶ岳の夕景">
+  <div class="night-band-ov">
+    <p class="night-band-txt">
+      まず自分を満たすこと。<br>
+      溢れた分で、人を満たすこと。<br>
+      その順番で生きると、<br>
+      少しずつ呼吸が深くなっていく。
+    </p>
+  </div>
+</div>
+
+
+<!-- ================================================
+     12. なぜこの講座をやるのか（story）
      ================================================ -->
 <section class="story"><div class="inner">
 <p class="lbl">なぜ、この学校をつくったのか</p>
@@ -511,7 +603,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 
 
 <!-- ================================================
-     12. プロフィール
+     13. プロフィール
      ================================================ -->
 <div class="prof-outer">
 <div class="prof-wrap fade">
@@ -549,7 +641,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 
 
 <!-- ================================================
-     13. 最後に（photo-card-sec）
+     14. 最後に（photo-card-sec）
      ================================================ -->
 <div class="photo-card-sec" id="cta" style="background:url('IMG_1988.jpeg') center/cover no-repeat;">
 <div class="photo-card-ov"></div>
@@ -569,7 +661,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 
 
 <!-- ================================================
-     14. 最終CTA（無料相談会）
+     15. 最終CTA（無料相談会）
      ================================================ -->
 <section class="final-cta"><div class="inner">
 <p class="lbl" style="justify-content:center;margin-bottom:20px">小さな入口から</p>
