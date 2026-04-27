@@ -15,18 +15,17 @@ html{scroll-behavior:smooth}
 }
 body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--text);background:#fff;line-height:1.85;overflow-x:hidden}
 
-/* HERO */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--cream)}
-.hero-bg{position:absolute;inset:0;background:url('IMG_5782.jpeg') center/cover no-repeat}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 30%,rgba(0,0,0,.55) 62%,rgba(253,248,240,.3) 78%,rgba(253,248,240,.92) 90%,rgba(253,248,240,1) 100%)}
-.hero-c{position:relative;z-index:2;padding:0 32px 60px;max-width:680px;margin:0 auto;text-align:center}
-.hero-ey{font-size:.76rem;letter-spacing:.25em;color:rgba(255,255,255,.88);margin-bottom:20px}
-.hero-catch{font-family:"Noto Serif JP",serif;font-size:clamp(1.5rem,5vw,2.4rem);font-weight:600;color:#fff;line-height:1.6;letter-spacing:.08em;margin-bottom:16px;text-shadow:0 2px 12px rgba(0,0,0,.75)}
-.hero-title{font-family:"Noto Serif JP",serif;font-size:clamp(1.05rem,3vw,1.4rem);font-weight:400;color:rgba(255,255,255,.95);margin-bottom:24px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(0,0,0,.7)}
-.hero-sub{font-size:clamp(.88rem,2.2vw,.98rem);color:rgba(255,255,255,.92);line-height:2;margin-bottom:36px;text-shadow:0 1px 8px rgba(0,0,0,.75)}
-.hero-btn{display:inline-block;background:var(--g2);color:#fff;font-size:1rem;font-weight:500;letter-spacing:.1em;padding:16px 44px;border-radius:100px;text-decoration:none;transition:all .3s;box-shadow:0 6px 24px rgba(0,0,0,.28);white-space:nowrap}
-.hero-btn:hover{background:var(--g1);transform:translateY(-2px)}
-.hero-note{display:block;margin-top:12px;font-size:.76rem;color:var(--text2);opacity:.6}
+/* HERO — lp_v9_9.html 完全踏襲 */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.02) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.72) 100%)}
+.hero-c{position:relative;z-index:2;padding:60px 40px 80px;max-width:860px}
+.hero-ey{display:inline-block;font-size:.78rem;letter-spacing:.25em;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.4);padding:6px 20px;border-radius:100px;margin-bottom:28px;backdrop-filter:blur(4px)}
+.hero-t{font-family:"Noto Serif JP",serif;font-size:clamp(2.1rem,6vw,4.2rem);font-weight:600;color:#fff;line-height:1.3;letter-spacing:.03em;margin-bottom:28px;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.hero-t .sub{display:block;font-size:clamp(1rem,2.5vw,1.35rem);font-weight:400;margin-bottom:12px;color:rgba(255,255,255,.92)}
+.hero-lead{font-size:clamp(.95rem,2vw,1.12rem);color:rgba(255,255,255,.92);line-height:2;margin-bottom:40px;max-width:580px}
+.hero-lead strong{display:block;font-size:clamp(1rem,2.2vw,1.25rem);color:#fff;font-weight:600;margin-bottom:6px}
+.hero-note{display:block;margin-top:14px;font-size:.8rem;color:rgba(255,255,255,.5)}
 
 /* STRIP */
 .strip{display:grid;grid-template-columns:repeat(6,1fr);height:160px;overflow:hidden}
@@ -204,6 +203,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 .fade.on{opacity:1;transform:translateY(0)}
 
 @media(max-width:768px){
+  .hero-c{padding:40px 22px 60px}
   .strip{grid-template-columns:repeat(3,1fr);height:110px}
   .mg-4{grid-template-columns:repeat(2,1fr)}.mg-3{grid-template-columns:1fr}
   .mg-3 img{height:180px}
@@ -236,18 +236,17 @@ footer a:hover{color:rgba(255,255,255,.7)}
      0. ヒーロー
      ================================================ -->
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" style="background-image:url('IMG_5782.jpeg')"></div>
   <div class="hero-ov"></div>
   <div class="hero-c">
-    <p class="hero-ey">奥八ヶ岳 ・ 月1回の自然実践</p>
-    <p class="hero-catch">まず満たす。<br>溢れる。届く。</p>
-    <h1 class="hero-title">週末自然暮らし実践講座</h1>
-    <p class="hero-sub">
-      好き・遊び・仕事の境界線が、<br>
-      少しずつほどけていく場所。
-    </p>
-    <a href="#" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'});return false;" class="hero-btn">まず、話を聞いてみる</a>
-    <span class="hero-note">無料相談会 ／ 参加無料</span>
+    <span class="hero-ey">八ヶ岳 ・ 6ヶ月 ・ 実践講座</span>
+    <h1 class="hero-t">
+      <span class="sub">まず満たす。溢れる。届く。</span>
+      心豊かさを取り戻す<br>週末自然暮らし<br>実践講座
+    </h1>
+    <p class="hero-lead"><strong>まず自分たちが満たされること。</strong>八ヶ岳の自然の中で、同じ想いを持つ仲間とワイワイ楽しくアイデアを出し合いながら、「心豊かさを取り戻す体験」を一緒に形にしていく6ヶ月です。</p>
+    <a href="#" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'});return false;" class="btn">まず、話を聞いてみる</a>
+    <span class="hero-note">いきなり大きな一歩でなくて大丈夫です ／ 無料相談会</span>
   </div>
 </div>
 
@@ -255,7 +254,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 <!-- ================================================
      1. イントロ（photo-card-sec）
      ================================================ -->
-<div class="photo-card-sec" style="background:url('IMG_5782.jpeg') center/cover no-repeat;">
+<div class="photo-card-sec" style="background:url('IMG_9423.jpeg') center/cover no-repeat;">
 <div class="photo-card-ov"></div>
 <div class="photo-card fade">
   <p class="photo-card-ttl">「週末自然暮らし実践講座」とは、</p>
